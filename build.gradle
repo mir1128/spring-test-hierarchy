@@ -1,0 +1,46 @@
+buildscript {
+    ext {
+        springBootVersion = '1.4.1.RELEASE'
+    }
+    repositories {
+             mavenCentral()
+             }
+    
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath 'org.flywaydb:flyway-gradle-plugin:3.2.1'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+jar {
+    baseName = 'riddy'
+    version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+}
+
+
+dependencies {
+  // https://mvnrepository.com/artifact/org.springframework/spring-context
+  compile group: 'org.springframework', name: 'spring-context', version: '5.0.0.M5'
+  // https://mvnrepository.com/artifact/org.springframework/spring-core
+  compile group: 'org.springframework', name: 'spring-core', version: '5.0.0.M5'
+
+  // https://mvnrepository.com/artifact/org.springframework/spring-beans
+  compile group: 'org.springframework', name: 'spring-beans', version: '5.0.0.M5'
+
+
+  // https://mvnrepository.com/artifact/org.springframework/spring-test
+  compile group: 'org.springframework', name: 'spring-test', version: '5.0.0.M5'
+
+}
+
